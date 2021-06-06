@@ -1,7 +1,10 @@
-export function makeParticipantList(participants) {
-  const $ul = $('<ul></ul>')
-  arr.forEach(item=>$ul.append($(`<li>
-  ${item.id}, ${item.race}, ${item.sexual}, ${item.gender}, ${item.childAges}, ${item.childRelate}, ${item.relationshipConfig}
-  </li>`)));
-  return $ul;
-}
+const $makeParticipantLI = p => {
+  const $li = $(`<li class="participant">${p.id}, ${p.race}, ${p.sexual}, ${p.gender}, ${p.childAges}, ${p.childRelate}, ${p.relationshipConfig}</li>`);
+  return $li
+};
+
+export const $makeParticipantList = participants => {
+  const $ul = $('<ul class="participants"></ul>');
+  participants.forEach(p=>$ul.append($makeParticipantLI(p)))
+  return $ul
+};

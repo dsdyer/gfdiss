@@ -1,29 +1,4 @@
-// import {appendThemeBox} from './templates/ThemeBox.js'
-
-export function makeParticipantList(participants) {
-  const $ul = $('<ul></ul>')
-  arr.forEach(item=>$ul.append($(`<li>
-  ${item.id}, ${item.race}, ${item.sexual}, ${item.gender}, ${item.childAges}, ${item.childRelate}, ${item.relationshipConfig}
-  </li>`)));
-  return $ul;
-}
-
-export function makeUL(arr) {
-  const $ul = $('<ul></ul>')
-  arr.forEach(item=>$ul.append($(`<li>
-  ${item.id}, ${item.race}, ${item.sexual}, ${item.gender}, ${item.childAges}, ${item.childRelate}, ${item.relationshipConfig}
-  </li>`)));
-  return $ul;
-}
-
-export function makeP(arr) {
-  const $p = $(`<p>    ${arr.join(', ')}</p>`);
-
-
-  
-  // console.log(`$p: ${JSON.stringify($p, null, 2)}`)
-  return $($p)
-}
+import {$makeParticipantList} from './templates/ParticipantList.js'
 
 
 export function appendSubThemeBox($container, name, participants) {
@@ -37,8 +12,7 @@ export function appendSubThemeBox($container, name, participants) {
     $contentBox.slideToggle();
   });
   
-  if(participants && participants.length) $contentBox.append(makeUL(participants))
-  // if(participants && participants.length) $contentBox.append(makeP(participants))
+  if(participants && participants.length) $contentBox.append($makeParticipantList(participants))
 
   $container.append($box)
 }

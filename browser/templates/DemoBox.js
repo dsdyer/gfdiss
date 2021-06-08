@@ -12,7 +12,7 @@ const DEMOGRAPHICS = [
 const $makeDemographicLI = demographic => {
   console.log(`demographic: ${JSON.stringify(demographic, null, 2)}`)
 
-  const $li = $(`<li class="demographic ">${demographic[0]}: <strong>${demographic[1]}</strong></li>`);
+  const $li = $(`<li class="demographic ">${demographic[0]}: <strong>${demographic[1]}</strong> </li>`);
   return $li
 };
 

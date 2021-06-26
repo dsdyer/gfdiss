@@ -1,10 +1,8 @@
-// import {dataStr} from './data/'
-import {Theme} from './theme'
+
+import { Theme } from './classes/Theme'
 import _ from 'lodash'
 
 export function parseInputString(string:string): any[] {
-  // console.log(`parser string: ${string}`)
-  // console.log(`parser string.trim().split('!theme').length: ${string.trim().split('!theme').length}`)
   const stringArr = string.trim().split('!theme').map((theme:string) => _.compact(theme.split(/\n/ig)));
 
   return stringArr
@@ -12,5 +10,11 @@ export function parseInputString(string:string): any[] {
 
 export function parseTheme(arr:string[]) {
   arr = _.compact(arr);
+  console.log(`parseTheme arr[0]: ${arr[0]}`)
   return new Theme(_.head(arr), _.tail(arr))
+}
+
+
+export function parseThemeList(themes:string[][]) {
+  return themes.map(t=>parseTheme(t));
 }

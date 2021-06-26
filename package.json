@@ -11,7 +11,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
+    "start": "tsdx watch --onSuccess \"npm run dist\"",
+    "dist": "clear & node ./dist/index.js",
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
